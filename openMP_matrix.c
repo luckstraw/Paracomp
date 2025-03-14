@@ -1,11 +1,9 @@
-// OpenMP Implementation (openmp_matrix.c)
 #include <stdio.h>
 #include <stdlib.h>
 #include <omp.h>
 
-#define N 4  // Matrix size
-
-void matrix_multiply_openmp(int A[N][N], int B[N][N], int C[N][N]) {
+// Function to perform matrix multiplication using OpenMP
+void matrix_multiply_openmp(int **A, int **B, int **C, int N) {
     #pragma omp parallel for collapse(2)
     for (int i = 0; i < N; i++) {
         for (int j = 0; j < N; j++) {
@@ -18,26 +16,38 @@ void matrix_multiply_openmp(int A[N][N], int B[N][N], int C[N][N]) {
 }
 
 int main() {
-    int A[N][N] = {
-        {1, 2, 3, 4},
-        {5, 6, 7, 8},
-        {9, 10, 11, 12},
-        {13, 14, 15, 16}
-    };
-    int B[N][N] = {
-        {1, 2, 3, 4},
-        {5, 6, 7, 8},
-        {9, 10, 11, 12},
-        {13, 14, 15, 16}
-    };
-    int C[N][N];
+    int N;
 
+    printf("openMP_Process:\n\n");
+
+    // Get the size of the matrix from the user
+    printf("Enter the size of the matrix: ");
+    scanf("%d", &N);
+
+    // Dynamically allocate memory for the matrices
+    int **A = (int **)malloc(N * sizeof(int *));
+    int **B = (int **)malloc(N * sizeof(int *));
+    int **C = (int **)malloc(N * sizeof(int *));
+    for (int i = 0; i < N; i++) {
+        A[i] = (int *)malloc(N * sizeof(int));
+        B[i] = (int *)malloc(N * sizeof(int));
+        C[i] = (int *)malloc(N * sizeof(int));
+    }
+
+    // Initialize matrices A and B
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < N; j++) {
+            A[i][j] = i * N + j + 1;
+            B[i][j] = i * N + j + 1;
+        }
+    }
+
+    // Perform matrix multiplication
     double start_time = omp_get_wtime();
-    matrix_multiply_openmp(A, B, C);
+    matrix_multiply_openmp(A, B, C, N);
     double end_time = omp_get_wtime();
 
-    printf("\n\nopenMP_Process:\n\n");
-
+    // Print matrices and the result
     printf("Matrix A:\n");
     for (int i = 0; i < N; i++) {
         for (int j = 0; j < N; j++) {
@@ -46,7 +56,7 @@ int main() {
         printf("\n");
     }
 
-    printf("\nMuliplied by\n");
+    printf("\nMultiplied by\n");
     
     printf("\nMatrix B:\n");
     for (int i = 0; i < N; i++) {
@@ -64,6 +74,22 @@ int main() {
         printf("\n");
     }
     printf("\nOpenMP Execution Time: %f seconds\n", end_time - start_time);
+
+    FILE *f = fopen("openmp_times.txt", "a");
+    fprintf(f, "Matrix Size: %d, Execution Time: %f seconds\n", N, end_time - start_time);
+    fclose(f);
+    
     printf("\n\n\n");
+
+    // Free the dynamically allocated memory
+    for (int i = 0; i < N; i++) {
+        free(A[i]);
+        free(B[i]);
+        free(C[i]);
+    }
+    free(A);
+    free(B);
+    free(C);
+
     return 0;
 }

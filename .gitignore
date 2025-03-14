@@ -5,3 +5,8 @@
 
 MPI_matrix
 openMP_matrix
+mpi_times.txt
+openmp_times.txt
+
+venv/
+__pycache__/
