@@ -2,4 +2,6 @@
 *.o
 *.out
 *.exe
-a.out
+
+MPI_matrix
+openMP_matrix
