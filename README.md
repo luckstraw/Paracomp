@@ -30,17 +30,17 @@ The graph compares the execution times of matrix multiplication for different ma
 ![Time_Comparison](/OpenMP_and_MPI_Execution_Time_Comparison.png)
 
 ### Speedup (S)
-\[ S = \frac{T_1}{T_p} \]
+`S = T1 / Tp`
 
 ![Speedup_Comparison](/OpenMP_and_MPI_Speedup_Comparison.png)
 
-where \( T_1 \) is the execution time with 1 thread/process, and \( T_p \) is the execution time with \( p \) threads/processes.
+where `T1` is the execution time with 1 thread/process, and `Tp` is the execution time with `p` threads/processes.
 
 ### Efficiency (E)
-\[ E = \frac{S}{p} = \frac{T_1}{p \cdot T_p} \]
+`E = S / p = T1 / (p * Tp)`
 
 ![Efficiency_Comparison](/OpenMP_and_MPI_Efficiency_Comparison.png)
 
-where \( S \) is the speedup and \( p \) is the number of threads/processes.
+where `S` is the speedup and `p` is the number of threads/processes.
 
 The graphs for speedup and efficiency illustrate the performance improvement and resource utilization for different configurations.
