@@ -7,8 +7,5 @@ MPI_matrix
 openMP_matrix
 mpi_times.txt
 openmp_times.txt
-performance_results.csv
-performance_analysis.png
 
 venv/
-__pycache__/
