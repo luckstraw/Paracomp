@@ -72,14 +72,14 @@ int main() {
     matrix_multiply_openmp(A, B, C, N);
     double end_time = omp_get_wtime();
 
-    printf("\nResult Matrix:\n");
-    for (int i = 0; i < N; i++) {
-        for (int j = 0; j < N; j++) {
-            print_int128(C[i][j]);
-            putchar(' ');
-        }
-        putchar('\n');
-    }
+    // printf("\nResult Matrix:\n");
+    // for (int i = 0; i < N; i++) {
+    //     for (int j = 0; j < N; j++) {
+    //         print_int128(C[i][j]);
+    //         putchar(' ');
+    //     }
+    //     putchar('\n');
+    // }
 
     printf("\nOpenMP Execution Time: %f seconds\n", end_time - start_time);
 

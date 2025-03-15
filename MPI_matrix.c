@@ -103,14 +103,14 @@ int main(int argc, char *argv[]) {
     double end_time = MPI_Wtime();
 
     if (rank == 0) {
-        printf("\nResult Matrix:\n");
-        for (int i = 0; i < N; i++) {
-            for (int j = 0; j < N; j++) {
-                print_int128(C[i * N + j]);
-                putchar(' ');
-            }
-            putchar('\n');
-        }
+        // printf("\nResult Matrix:\n");
+        // for (int i = 0; i < N; i++) {
+        //     for (int j = 0; j < N; j++) {
+        //         print_int128(C[i * N + j]);
+        //         putchar(' ');
+        //     }
+        //     putchar('\n');
+        // }
         printf("\nMPI Execution Time: %f seconds\n", end_time - start_time);
 
         FILE *f = fopen("mpi_times.txt", "a");

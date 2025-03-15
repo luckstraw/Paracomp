@@ -1,6 +1,8 @@
-# Paracomp
+# Laboratory Activity # 1: Performance Analysis in Parallel and Distributed Computing
 
-This repository is for my subject Paracomp para easy lang magpasa kay sir
+This lab activity explores the performance of parallel and distributed systems by analyzing **execution time**, **speedup**, and **efficiency** using **OpenMP** and **MPI**. It helps evaluate scalability and resource utilization across different workloads.
+
+---
 
 ## Requirements
 
@@ -9,38 +11,75 @@ This repository is for my subject Paracomp para easy lang magpasa kay sir
 - MPI implementation (e.g., MPICH or Open MPI)
 - Python 3.x
 - Matplotlib (Python library for plotting)
-- Better to run this on WSL2/Linux 
+- Bash
 
 ## Running the program
-After Completing the requirements just run the "run.sh" file
+Make sure you have the requirements before proceeding
 
+1. **Clone the repository then navigate to the directory**:
+```bash
+git clone https://github.com/luckstraw/Paracomp.git
+```
+```bash
+cd Paracomp
+```
+2. **Make the code executable then run the program**:
 ```bash
 chmod +x run.sh
+```
+```bash
 ./run.sh
 ```
+After running the program it will generate a data in `.txt` file and it will show you a graph of your generated data. You can adjust the matrix size and the number of threads/cores in `run.sh` file
+
+---
 
 ## Understanding the Graphs
-The script will auto run the program and test some size and threads/cores performing matrix multiplication
-and it will generate data and graph here's my example below, ofcourse if you run this program the data might be 
-different due to the factor of your computer specs?
+This graph here is the result of my generated data, the data you generated might be different on this due to some factor like computer cpu core/threads 
 
 ### Execution Time Comparison
 The graph compares the execution times of matrix multiplication for different matrix sizes and the number of threads/processes used.
 
-![Time_Comparison](/OpenMP_and_MPI_Execution_Time_Comparison.png)
+![Time_Comparison](/assets/Execution_Time.png)
+
+---
 
 ### Speedup (S)
-`S = T1 / Tp`
 
-![Speedup_Comparison](/OpenMP_and_MPI_Speedup_Comparison.png)
+Speedup measures the performance improvement when executing a task using multiple threads or processes compared to a single-threaded execution.
 
-where `T1` is the execution time with 1 thread/process, and `Tp` is the execution time with `p` threads/processes.
+**Formula**:
+
+```math
+S = \frac{T_1}{T_p}
+```
+Where:
+- $\( T_1 \)$: Execution time of the task on a single thread or process.
+- $\( T_p \)$: Execution time of the task on $\( p \)$ threads or processes.
+
+**Description**:
+- A **higher speedup** indicates better performance, as the task is completed faster when more threads/processes are used.
+- Ideally, \( S \) should be equal to the number of threads or processes \( p \) (i.e., **linear speedup**). However, due to communication overhead, synchronization, and non-parallelizable portions of the task, the actual speedup is often less than \( p \).
+
+![Speedup](/assets/Speedup.png)
+
+---
 
 ### Efficiency (E)
-`E = S / p = T1 / (p * Tp)`
 
-![Efficiency_Comparison](/OpenMP_and_MPI_Efficiency_Comparison.png)
+Efficiency measures how effectively the computational resources (threads or processes) are utilized during parallel execution.
 
-where `S` is the speedup and `p` is the number of threads/processes.
+**Formula**:
+```math
+E = \frac{S}{p} = \frac{T_1}{p \cdot T_p}
+```
+Where:
+- $\( S \)$: Speedup.
+- $\( p \)$: Number of threads or processes.
 
-The graphs for speedup and efficiency illustrate the performance improvement and resource utilization for different configurations.
+**Description**:
+- Efficiency ranges from 0 to 1 (or 0% to 100%):
+  - $\( E = 1 \)$ (or 100%) implies perfect utilization of resources.
+  - $\( E < 1 \)$ indicates some loss in resource efficiency, often due to communication overhead, load imbalance, or sequential portions of the workload.
+
+![Efficiency](/assets/Efficiency.png)
