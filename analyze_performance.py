@@ -1,7 +1,6 @@
 import matplotlib.pyplot as plt
 import os
 
-# Function to read times from a file
 def read_times(filename):
     matrix_sizes = set()
     times = {}
@@ -11,22 +10,21 @@ def read_times(filename):
     with open(filename, "r") as file:
         for line in file:
             parts = line.strip().split(',')
-            size = int(parts[0].split(':')[1].strip())  # Matrix size
+            size = int(parts[0].split(':')[1].strip())
             time_str = parts[1].split(':')[1].strip()
-            time = float(time_str.split()[0])  # Extract numeric part before converting to float
-            threads = int(parts[2].split(':')[1].strip())  # Threads/Processes
+            time = float(time_str.split()[0])
+            threads = int(parts[2].split(':')[1].strip())
             matrix_sizes.add(size)
             if size not in times:
                 times[size] = {}
-            times[size][threads] = time  # Store execution time directly
+            times[size][threads] = time
     return sorted(matrix_sizes), times
 
-# Function to calculate speedup and efficiency
 def calculate_speedup_and_efficiency(times):
     speedup = {}
     efficiency = {}
     for size, thread_times in times.items():
-        T1 = thread_times[1]  # Get time for 1 process/thread
+        T1 = thread_times[1]
         speedup[size] = {}
         efficiency[size] = {}
         for threads, t_time in thread_times.items():
@@ -35,15 +33,12 @@ def calculate_speedup_and_efficiency(times):
             efficiency[size][threads] = S / threads
     return speedup, efficiency
 
-# Read OpenMP and MPI data
 openmp_sizes, openmp_times = read_times("openmp_times.txt")
 mpi_sizes, mpi_times = read_times("mpi_times.txt")
 
-# Calculate speedup and efficiency
 openmp_speedup, openmp_efficiency = calculate_speedup_and_efficiency(openmp_times)
 mpi_speedup, mpi_efficiency = calculate_speedup_and_efficiency(mpi_times)
 
-# Common plot settings
 markers = ['o', 's', 'D', '^', 'v', '<', '>', 'p']
 colors = ['b', 'g', 'r', 'c', 'm', 'y', 'k', '#1f77b4']
 

@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <omp.h>
 
-// Custom function to print __int128
 void print_int128(__int128 value) {
     if (value < 0) {
         putchar('-');
@@ -13,7 +12,7 @@ void print_int128(__int128 value) {
         return;
     }
 
-    char buffer[40]; // Buffer to hold the digits
+    char buffer[40];
     int i = 0;
     while (value > 0) {
         buffer[i++] = (value % 10) + '0';
@@ -24,7 +23,6 @@ void print_int128(__int128 value) {
     }
 }
 
-// Function to perform matrix multiplication using OpenMP
 void matrix_multiply_openmp(__int128 **A, __int128 **B, __int128 **C, int N) {
     #pragma omp parallel for collapse(2)
     for (int i = 0; i < N; i++) {
@@ -42,14 +40,11 @@ int main() {
 
     printf("openMP_Process:\n\n");
 
-    // Get the size of the matrix from the user
     printf("Enter the size of the matrix: ");
     scanf("%d", &N);
     
-    // Get the number of threads
     T = omp_get_max_threads();
 
-    // Dynamically allocate memory for the matrices
     __int128 **A = (__int128 **)malloc(N * sizeof(__int128 *));
     __int128 **B = (__int128 **)malloc(N * sizeof(__int128 *));
     __int128 **C = (__int128 **)malloc(N * sizeof(__int128 *));
@@ -59,7 +54,6 @@ int main() {
         C[i] = (__int128 *)malloc(N * sizeof(__int128));
     }
 
-    // Initialize matrices A and B
     for (int i = 0; i < N; i++) {
         for (int j = 0; j < N; j++) {
             A[i][j] = i * N + j + 1;
@@ -67,19 +61,18 @@ int main() {
         }
     }
 
-    // Perform matrix multiplication
     double start_time = omp_get_wtime();
     matrix_multiply_openmp(A, B, C, N);
     double end_time = omp_get_wtime();
 
-    // printf("\nResult Matrix:\n");
-    // for (int i = 0; i < N; i++) {
-    //     for (int j = 0; j < N; j++) {
-    //         print_int128(C[i][j]);
-    //         putchar(' ');
-    //     }
-    //     putchar('\n');
-    // }
+    printf("\nResult Matrix:\n");
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < N; j++) {
+            print_int128(C[i][j]);
+            putchar(' ');
+        }
+        putchar('\n');
+    }
 
     printf("\nOpenMP Execution Time: %f seconds\n", end_time - start_time);
 
@@ -89,7 +82,6 @@ int main() {
     
     printf("\n\n\n");
 
-    // Free the dynamically allocated memory
     for (int i = 0; i < N; i++) {
         free(A[i]);
         free(B[i]);

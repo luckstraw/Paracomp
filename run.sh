@@ -6,16 +6,12 @@ touch mpi_times.txt
 > openmp_times.txt
 > mpi_times.txt
 
-# Compile the OpenMP program
+# Compile the OpenMP and MPI program
 gcc -fopenmp openMP_matrix.c -o openMP_matrix
-
-# Compile the MPI program
 mpicc -o MPI_matrix MPI_matrix.c
 
-# Matrix sizes to test
+# You can change the matrix sizes and number of threads/processes to test
 matrix_sizes=(1000 1250 1500 1750)
-
-# Number of threads/processes to test
 threads=(1 2 3 4)
 
 # MPI Performance Analysis
@@ -37,16 +33,11 @@ EOF
     done
 done
 
-# Set up and activate the virtual environment
+# For Graphs
 python3 -m venv venv
 
 source venv/bin/activate
 
-# # Install matplotlib if not already installed
-# pip install matplotlib
-
-# Run the Python script for graphical representation
 python3 analyze_performance.py
 
-# Deactivate the virtual environment
 deactivate
