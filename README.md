@@ -1,20 +1,23 @@
 # Laboratory Activity # 1: Performance Analysis in Parallel and Distributed Computing
 
-This lab activity explores the performance of parallel and distributed systems by analyzing **execution time**, **speedup**, and **efficiency** using **OpenMP** and **MPI**. It helps evaluate scalability and resource utilization across different workloads.
+This laboratory activity focuses on analyzing the performance of parallel and distributed systems. By measuring **execution time**, **speedup**, and **efficiency** using **OpenMP** and **MPI**, students can evaluate scalability and resource utilization across different computational workloads.
 
 ---
 
 ## Requirements
 
 ### Tools and Libraries
-- GCC with openMP support
-- MPI implementation (e.g., MPICH or Open MPI)
-- Python 3.x
-- Matplotlib (Python library for plotting)
-- Bash
+To run the program, ensure the following tools and libraries are installed:
+- **GCC** with OpenMP support
+- **MPI** implementation (e.g., MPICH or Open MPI)
+- **Python 3.x** with Matplotlib for graph plotting
+- **Bash** (for scripting)
+
+---
 
 ## Running the program
-Make sure you have the requirements before proceeding
+
+Follow these steps to execute the program:
 
 1. **Clone the repository then navigate to the directory**:
 ```bash
@@ -30,23 +33,26 @@ chmod +x run.sh
 ```bash
 ./run.sh
 ```
-After running the program it will generate a data in `.txt` file and it will show you a graph of your generated data. You can adjust the matrix size and the number of threads/cores in `run.sh` file
+
+After running the program:
+- A `.txt` file containing execution time data will be generated.
+- Graphs based on your generated data will be displayed.
+- You can adjust the **matrix size** and the **number of threads/cores** by modifying the `run.sh` script
 
 ---
 
 ## Understanding the Graphs
-This graph here is the result of my generated data, the data you generated might be different on this due to some factor like computer cpu core/threads 
+The results of your generated data will be visualized through graphs. Note that the data may vary depending on factors like your CPU's cores/threads and system performance. Below is an explanation of the graphs:
 
 ### Execution Time Comparison
-The graph compares the execution times of matrix multiplication for different matrix sizes and the number of threads/processes used.
+This graph illustrates the execution time for matrix multiplication under different matrix sizes and varying numbers of threads/processes. It highlights how increasing the number of threads/processes impacts computational time.
 
 ![Time_Comparison](/assets/Execution_Time.png)
 
 ---
 
 ### Speedup (S)
-
-Speedup measures the performance improvement when executing a task using multiple threads or processes compared to a single-threaded execution.
+Speedup quantifies the performance improvement achieved by parallel execution compared to sequential execution.
 
 **Formula**:
 
@@ -67,7 +73,7 @@ Where:
 
 ### Efficiency (E)
 
-Efficiency measures how effectively the computational resources (threads or processes) are utilized during parallel execution.
+Efficiency measures how effectively computational resources (threads or processes) are utilized during parallel execution.
 
 **Formula**:
 ```math
