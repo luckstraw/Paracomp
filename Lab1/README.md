@@ -1,6 +1,6 @@
-# Laboratory Activity # 1: Performance Analysis in Parallel and Distributed Computing
+# Laboratory Activity # 1: Parallel and Distributed Matrix Multiplication
 
-This laboratory activity focuses on analyzing the performance of parallel and distributed systems. By measuring **execution time**, **speedup**, and **efficiency** using **OpenMP** and **MPI**, students can evaluate scalability and resource utilization across different computational workloads.
+This activity explores the implementation of **parallel** and **distributed** algorithms for matrix multiplication, showcasing the advantages of computational efficiency and scalability in high-performance computing environments.
 
 ---
 
