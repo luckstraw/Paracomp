@@ -47,7 +47,7 @@ The results of your generated data will be visualized through graphs. Note that 
 ### Execution Time Comparison
 This graph illustrates the execution time for matrix multiplication under different matrix sizes and varying numbers of threads/processes. It highlights how increasing the number of threads/processes impacts computational time.
 
-![Time_Comparison](/assets/Execution_Time.png)
+![Time_Comparison](assets/Execution_Time.png)
 
 ---
 
@@ -67,7 +67,7 @@ Where:
 - A **higher speedup** indicates better performance, as the task is completed faster when more threads/processes are used.
 - Ideally, \( S \) should be equal to the number of threads or processes \( p \) (i.e., **linear speedup**). However, due to communication overhead, synchronization, and non-parallelizable portions of the task, the actual speedup is often less than \( p \).
 
-![Speedup](/assets/Speedup.png)
+![Speedup](/Lab1/assets/Speedup.png)
 
 ---
 
