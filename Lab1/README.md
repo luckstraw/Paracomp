@@ -4,29 +4,11 @@ This activity explores the implementation of **parallel** and **distributed** al
 
 ---
 
-## Requirements
-
-### Tools and Libraries
-To run the program, ensure the following tools and libraries are installed:
-- **GCC** with OpenMP support
-- **MPI** implementation (e.g., MPICH or Open MPI)
-- **Python 3.x** with Matplotlib for graph plotting
-- **Bash** (for scripting)
-
----
-
 ## Running the program
 
 Follow these steps to execute the program:
 
-1. **Clone the repository then navigate to the directory**:
-```bash
-git clone https://github.com/luckstraw/Paracomp.git
-```
-```bash
-cd Paracomp
-```
-2. **Make the code executable then run the program**:
+1. **Make the code executable then run the program**:
 ```bash
 chmod +x run.sh
 ```
@@ -67,7 +49,7 @@ Where:
 - A **higher speedup** indicates better performance, as the task is completed faster when more threads/processes are used.
 - Ideally, \( S \) should be equal to the number of threads or processes \( p \) (i.e., **linear speedup**). However, due to communication overhead, synchronization, and non-parallelizable portions of the task, the actual speedup is often less than \( p \).
 
-![Speedup](/Lab1/assets/Speedup.png)
+![Speedup](assets/Speedup.png)
 
 ---
 
@@ -88,4 +70,4 @@ Where:
   - $\( E = 1 \)$ (or 100%) implies perfect utilization of resources.
   - $\( E < 1 \)$ indicates some loss in resource efficiency, often due to communication overhead, load imbalance, or sequential portions of the workload.
 
-![Efficiency](/assets/Efficiency.png)
+![Efficiency](assets/Efficiency.png)
