@@ -1,10 +1,5 @@
 # Paracomp: Laboratory Activities Repository
 
-**A collection of laboratory activities for the Parallel and Distributed Computing course. This repository demonstrates the implementation of parallel and distributed algorithms to solve computational problems efficiently.**
-
----
-
-## 📜 **Overview**
 This repository contains all the laboratory activities for the **Parallel and Distributed Computing** (Paracomp) subject. Each activity focuses on a specific concept, technique, or technology related to parallelism and distribution in computing.
 
 The repository is structured for easy navigation, enabling you to quickly review each lab activity.
@@ -14,9 +9,10 @@ The repository is structured for easy navigation, enabling you to quickly review
 ## 📂 **Contents**
 Below is a list of all the activities included in this repository:
 
-1. **[Lab #1: Parallel and Distributed Matrix Multiplication](./Lab1/)**  
+1. **[Lab #1: Parallel and Distributed Matrix Multiplication](./Lab_1/)**  
    *Description*: Implement matrix multiplication using both parallel and distributed approaches (OpenMP and MPI).
-
+2. **[Lab #1.1: Parallel and Distributed Computing Example](./Lab_1.1/)**
+   *Description*: Parallel and Distributed(Client-Server Model) Computing Example
 ---
 
 ## 🚀 **How to Run Each Lab**
