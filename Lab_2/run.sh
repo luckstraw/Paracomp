@@ -9,7 +9,7 @@ echo "Threads,Stations,Execution Time,Hottest Avg Temp,Coldest Avg Temp,Highest 
 # Define matrix sizes (number of stations to test)
 matrix_sizes=(10000 20000 40000 80000 160000)
 
-# Define number of threads to use
+# Define number of threads to use(change this if you want)
 export OMP_NUM_THREADS=16
 
 # Loop through each matrix size and run the program
