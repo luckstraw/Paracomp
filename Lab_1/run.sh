@@ -38,6 +38,8 @@ python3 -m venv venv
 
 source venv/bin/activate
 
+pip install matplotlib
+
 python3 analyze_performance.py
 
 deactivate
