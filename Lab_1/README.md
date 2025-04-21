@@ -9,12 +9,12 @@ This activity explores the implementation of **parallel** and **distributed** al
 Follow these steps to execute the program:
 
 1. **Make the code executable then run the program**:
-```bash
-chmod +x run.sh
-```
-```bash
-./run.sh
-```
+  ```bash
+  chmod +x run.sh
+  ```
+  ```bash
+  ./run.sh
+  ```
 
 After running the program:
 - A `.txt` file containing execution time data will be generated.

@@ -21,16 +21,16 @@ To run the program, ensure the following tools and libraries are installed:
 ### General Steps:
 
 1. **Clone the repository then navigate to the directory:**:
-```bash
-git clone https://github.com/luckstraw/Paracomp.git
-```
-```bash
-cd Paracomp
-```
+    ```bash
+    git clone https://github.com/luckstraw/Paracomp.git
+    ```
+    ```bash
+    cd Paracomp
+    ```
 
 2. **Navigate to the specific lab directory:**
-```bash
-cd Lab1 # Replace with the lab folder you want to access
-```
+    ```bash
+    cd Lab1 # Replace with the lab folder you want to access
+    ```
 
 3. **Follow the README.md instructions inside each lab folder for setup and execution**

@@ -5,12 +5,12 @@
 Follow these steps to execute the program:
 
 1. **Make the code executable then run the program**:
-```bash
-chmod +x run.sh
-```
-```bash
-./run.sh
-```
+    ```bash
+    chmod +x run.sh
+    ```
+    ```bash
+    ./run.sh
+    ```
 
 ## Output:
 - **weather_analysis.csv will generate data**  
